@@ -205,7 +205,6 @@ app.MapGet("/Classes", async (int pageNumber, int pageSize, IMediator mediator) 
 //Exam
 app.MapPost("/exams", async (CreateExamCommand command, IMediator mediator) =>
 {
-    Console.WriteLine("test");
     var examId = await mediator.Send(command);
     return Results.Created($"/questions/{examId}", examId);
 }).RequireAuthorization();
